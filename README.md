@@ -1,25 +1,24 @@
 # System Programming Suite
 
-A single Windows Forms project (.NET 8, C#) with a main menu that opens five modules. Each module calls real operating-system APIs through the .NET runtime or P/Invoke.
+A Windows Forms app (C#, .NET 8) with a main menu and five modules. Every button calls a real operating-system feature.
 
-| Module | Concepts demonstrated | Key APIs |
+| Module | Buttons | Concept |
 |---|---|---|
-| Process Management | Enumerate, create, terminate, suspend, resume | `Process`, `OpenProcess`, `NtSuspendProcess`, `NtResumeProcess` |
-| Threads and Synchronization | Race conditions, locks, mutex, semaphore, cancellation, parallelism | `Thread`, `lock`, `Interlocked`, `Mutex`, `SemaphoreSlim`, `Parallel.For` |
-| File System and I/O | CRUD, attributes, exclusive locks, change notification | `File`, `FileStream`, `FileShare.None`, `FileSystemWatcher`, `DriveInfo` |
-| Memory Management | Virtual memory, heap, GC, shared memory | `VirtualAlloc`, `VirtualFree`, `GC`, `MemoryMappedFile` |
-| Inter-Process Communication | Named pipes, stdout redirection | `NamedPipeServerStream`, `NamedPipeClientStream`, `ProcessStartInfo.RedirectStandardOutput` |
+| Process Management | List, Start, Stop, Pause, Resume | Processes, Windows API calls |
+| Threads and Synchronization | Start thread, Race (no lock), Race (lock), Semaphore | Threads, race conditions, locks |
+| File System | Create, Append, Read, Info, Delete | File I/O |
+| Memory Management | Info, Allocate, Write/Read, Free, GC | Virtual memory, garbage collection |
+| Inter-Process Communication | Start server, Send, Stop server, Child process | Named pipes, process output |
 
-## Build and run
+## Run
 
-Requires Windows 10/11 and the .NET 8 SDK (or Visual Studio 2022 with the ".NET desktop development" workload).
+Needs Windows 10/11 and the .NET 8 SDK.
 
     dotnet run
 
-In Visual Studio: open `SystemProgrammingSuite.csproj` and press F5.
+Or open the `.csproj` in Visual Studio 2022 and press F5.
 
 ## Notes
 
-- Stopping or suspending system processes may require running as administrator. The app refuses to stop or suspend itself.
-- Pausing a process freezes it completely. Resume it before closing the app.
-- File demos only touch `%TEMP%\SysProgSuite`.
+- Pause, Resume and Stop on other programs may need "Run as administrator".
+- Files are stored in `%TEMP%\SysProgSuite`.
